@@ -38,12 +38,8 @@ class OAuthHandler(BaseHTTPRequestHandler):
 
         token = response.json()
 
-        data_to_save = {
-            "access_token": token["access_token"],
-            "expires_at": token["expires_at"],
-        }
         with open(TOKEN_FILE, "w") as f:
-            json.dump(data_to_save, f)
+            json.dump(token, f)
 
         self.send_response(200)
         self.end_headers()
@@ -54,12 +50,9 @@ def get_access_token():
     if os.path.exists(TOKEN_FILE):
         with open(TOKEN_FILE, "r") as f:
             data = json.load(f)
-
-            expires_at = data["expires_at"]
-            access_token = data["access_token"]
-            if expires_at and access_token:
-                if datetime.now().timestamp() < (expires_at - 300):
-                    return access_token
+            if "expires_at" in data and "access_token" in data:
+                if datetime.now().timestamp() < (data["expires_at"] - 300):
+                    return data["access_token"]
 
     scope = "read,activity:read_all,profile:read_all"
     auth_url = f"http://www.strava.com/oauth/authorize?client_id={CLIENT_ID}&response_type=code&redirect_uri={REDIRECT_URI}&approval_prompt=force&scope={scope}"
@@ -70,12 +63,3 @@ def get_access_token():
 
     with open(TOKEN_FILE) as f:
         return json.load(f)["access_token"]
-
-
-def main():
-    token = get_access_token()
-    print(f"TOKEN : {token}")
-
-
-if __name__ == "__main__":
-    main()
