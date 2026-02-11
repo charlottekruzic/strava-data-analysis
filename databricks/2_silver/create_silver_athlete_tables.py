@@ -28,7 +28,7 @@ df_bikes_silver = df_athlete_bronze.select(
     col("id").alias("athlete_id"), explode("bikes").alias("bike")
 ).select("athlete_id", "bike.*")
 df_bikes_silver.write.format("delta").mode("overwrite").saveAsTable(
-    "strava_catalog.silver.athlete_bikes"
+    "strava_catalog.silver.athlete_bike"
 )
 
 # COMMAND ----------
@@ -38,7 +38,7 @@ df_clubs_silver = df_athlete_bronze.select(
     col("id").alias("athlete_id"), explode("clubs").alias("club")
 ).select("athlete_id", "club.*")
 df_clubs_silver.write.format("delta").mode("overwrite").saveAsTable(
-    "strava_catalog.silver.athlete_clubs"
+    "strava_catalog.silver.athlete_club"
 )
 
 # COMMAND ----------
@@ -48,5 +48,5 @@ df_shoes_silver = df_athlete_bronze.select(
     col("id").alias("athlete_id"), explode("shoes").alias("shoe")
 ).select("athlete_id", "shoe.*")
 df_shoes_silver.write.format("delta").mode("overwrite").saveAsTable(
-    "strava_catalog.silver.athlete_shoes"
+    "strava_catalog.silver.athlete_shoe"
 )
