@@ -1,5 +1,5 @@
 # Databricks notebook source
-from pyspark.sql.functions import col, explode
+from pyspark.sql.functions import col, explode, explode_outer
 from pyspark.sql.types import ArrayType, StructType
 
 # COMMAND ----------
@@ -34,10 +34,42 @@ df_bikes_silver.write.format("delta").mode("overwrite").saveAsTable(
 # COMMAND ----------
 
 # Clubs
-df_clubs_silver = df_athlete_bronze.select(
+df_clubs_tot = df_athlete_bronze.select(
     col("id").alias("athlete_id"), explode("clubs").alias("club")
 ).select("athlete_id", "club.*")
-df_clubs_silver.write.format("delta").mode("overwrite").saveAsTable(
+
+df_club_silver = df_clubs_tot.drop(
+    "athlete_id", "activity_types", "dimensions", "admin", "membership", "owner"
+).dropDuplicates(["id"])
+df_club_silver.write.format("delta").mode("overwrite").saveAsTable(
+    "strava_catalog.silver.club"
+)
+
+# Club activity types
+df_club_activity_type_silver = (
+    df_clubs_tot.select(
+        col("id").alias("club_id"),
+        explode_outer("activity_types").alias("activity_type"),
+    )
+).dropDuplicates(["club_id", "activity_type"])
+df_club_activity_type_silver.write.format("delta").mode("overwrite").saveAsTable(
+    "strava_catalog.silver.club_activity_type"
+)
+
+# Club dimensions
+df_club_dimensions_silver = (
+    df_clubs_tot.select(
+        col("id").alias("club_id"), explode_outer("dimensions").alias("dimension")
+    )
+).dropDuplicates(["club_id", "dimension"])
+df_club_dimensions_silver.write.format("delta").mode("overwrite").saveAsTable(
+    "strava_catalog.silver.club_dimension"
+)
+
+df_athlete_clubs_silver = df_clubs_tot.select(
+    col("id").alias("club_id"), "athlete_id", "admin", "membership", "owner"
+)
+df_athlete_clubs_silver.write.format("delta").mode("overwrite").saveAsTable(
     "strava_catalog.silver.athlete_club"
 )
 
