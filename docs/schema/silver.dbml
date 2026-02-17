@@ -1,0 +1,384 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table athlete{
+  athlete_type bigint
+  badge_type_id bigint
+  bio string
+  blocked boolean
+  can_follow boolean
+  city string
+  country string
+  created_at timestamp
+  date_preference string
+  firstname string
+  follower string
+  follower_count bigint
+  friend string
+  friend_count bigint
+  ftp string
+  id bigint [primary key]
+  lastname string
+  measurement_preference string
+  mutual_friend_count bigint
+  postable_clubs_count bigint
+  premium boolean
+  profile string
+  profile_medium string
+  resource_state bigint
+  sex string
+  state string
+  summit boolean
+  updated_at timestamp
+  username string
+  weight string
+}
+
+Table athlete_bike{
+  athlete_id bigint
+  converted_distance double
+  distance bigint
+  id string [primary key]
+  name string
+  nickname string
+  primary boolean
+  resource_state bigint
+  retired boolean
+}
+
+Table athlete_club{
+  club_id bigint [primary key]
+  athlete_id bigint [primary key]
+  admin boolean
+  membership string
+  owner boolean
+}
+
+Table club{
+  activity_types_icon string
+  city string
+  country string
+  cover_photo string
+  cover_photo_small string
+  featured boolean
+  id bigint [primary key]
+  localized_sport_type string
+  member_count bigint
+  name string
+  private boolean
+  profile string
+  profile_medium string
+  resource_state bigint
+  sport_type string
+  state string
+  url string
+  verified boolean
+}
+
+Table athlete_shoe{
+  athlete_id bigint
+  converted_distance double
+  distance bigint
+  id string [primary key]
+  name string
+  nickname string
+  primary boolean
+  resource_state bigint
+  retired boolean
+}
+
+Table club_activity_type{
+  club_id bigint [primary key]
+  activity_type string [primary key]
+}
+
+Table club_dimension{
+  club_id bigint [primary key]
+  dimension string [primary key]
+}
+
+Ref: athlete.id < athlete_bike.athlete_id
+Ref: athlete.id < athlete_club.athlete_id
+Ref: athlete.id < athlete_shoe.athlete_id
+Ref: club.id < athlete_club.club_id
+Ref: club.id <> club_activity_type.club_id
+Ref: club.id <> club_dimension.club_id
+
+Table activity{
+  achievement_count bigint
+  athlete_count bigint
+  athlete_id bigint
+  average_cadence double
+  average_heartrate double
+  average_speed double
+  calories double
+  calories_visibility string
+  comment_count bigint
+  commute boolean
+  description string
+  device_name string
+  display_hide_heartrate_option boolean
+  distance double
+  elapsed_time bigint
+  elev_high double
+  elev_low double
+  embed_token string
+  end_lat double
+  end_lng double
+  external_id string
+  flagged boolean
+  from_accepted_tag boolean
+  gear_id string
+  has_heartrate boolean
+  has_kudoed boolean
+  heart_rate_visibility string
+  heartrate_opt_out boolean
+  hide_from_home boolean
+  id bigint [primary key]
+  kudos_count bigint
+  location_city string
+  location_country string
+  location_state string
+  manual boolean
+  map_id string
+  max_heartrate double
+  max_speed double
+  moving_time bigint
+  name string
+  pace_visibility string
+  perceived_exertion string
+  photo_count bigint
+  power_visibility string
+  pr_count bigint
+  prefer_perceived_exertion boolean
+  private boolean
+  resource_state bigint
+  speed_visibility string
+  sport_type string
+  start_date timestamp
+  start_date_local timestamp
+  start_lat double
+  start_lng double
+  timezone string
+  total_elevation_gain double
+  total_photo_count bigint
+  trainer boolean
+  type string
+  upload_id bigint
+  upload_id_str string
+  utc_offset double
+  visibility string
+  workout_type bigint
+}
+
+Table activity_best_effort{
+  activity_id bigint
+  athlete_id bigint
+  distance bigint
+  elapsed_time bigint
+  end_index bigint
+  id bigint [primary key]
+  moving_time bigint
+  name string
+  pr_rank bigint
+  resource_state bigint
+  start_date timestamp
+  start_date_local timestamp
+  start_index bigint
+}
+
+Table activity_map{
+  id string [primary key]
+  polyline string
+  resource_state bigint
+  summary_polyline string
+}
+
+Table activity_photo {
+  activity_id bigint
+  count bigint
+  media_type bigint
+  source bigint
+  unique_id string [primary key]
+  use_primary_photo boolean
+  url_100 string
+  url_600 string
+}
+
+Table activity_segment_effort {
+  activity_id bigint
+  athlete_id bigint
+  average_cadence double
+  average_heartrate double
+  device_watts boolean
+  distance double
+  elapsed_time bigint
+  end_index bigint
+  hidden boolean
+  id bigint [primary key]
+  max_heartrate double
+  moving_time bigint
+  name string
+  pr_rank bigint
+  resource_state bigint
+  segment_id bigint
+  start_date timestamp
+  start_date_local timestamp
+  start_index bigint
+  visibility string
+}
+
+Table segment {
+  activity_type string
+  average_grade double
+  city string
+  climb_category bigint
+  country string
+  distance double
+  elevation_high double
+  elevation_low double
+  elevation_profile string
+  elevation_profiles string
+  end_lat double
+  end_lng double
+  hazardous boolean
+  id bigint [primary key]
+  maximum_grade double
+  name string
+  private boolean
+  resource_state bigint
+  starred boolean
+  start_lat double
+  start_lng double
+  state string
+}
+
+Table activity_split_metric{
+  activity_id bigint [primary key]
+  average_grade_adjusted_speed double
+  average_heartrate double
+  average_speed double
+  distance double
+  elapsed_time bigint
+  elevation_difference double
+  moving_time bigint
+  pace_zone bigint
+  split bigint [primary key]
+}
+
+Table activity_best_effort_achievement{
+  best_efforts_id bigint [primary key]
+  rank bigint
+  type string
+  type_id bigint [primary key]
+}
+
+Table gear{
+  converted_distance double
+  distance bigint
+  id string [primary key]
+  name string
+  nickname string
+  primary boolean
+  resource_state bigint
+  retired boolean
+}
+
+Table activity_lap {
+  activity_id bigint
+  athlete_id bigint
+  average_cadence double
+  average_heartrate double
+  average_speed double
+  average_watts double
+  device_watts boolean
+  distance double
+  elapsed_time bigint
+  end_index bigint
+  id bigint [primary key]
+  lap_index bigint
+  max_heartrate double
+  max_speed double
+  moving_time bigint
+  name string
+  pace_zone bigint
+  resource_state bigint
+  split bigint
+  start_date timestamp
+  start_date_local timestamp
+  start_index bigint
+  total_elevation_gain double
+}
+
+Table activity_similar_activity{
+  activity_id bigint [primary key]
+  average_speed double
+  effort_count bigint
+  frequency_milestone bigint
+  max_average_speed double
+  mid_average_speed double
+  min_average_speed double
+  pr_rank bigint
+  resource_state bigint
+  trend_current_activity_index bigint
+  trend_direction bigint
+  trend_max_speed double
+  trend_mid_speed double
+  trend_min_speed double
+  trend_speeds array // {"items": "double"}
+}
+
+Table activity_split_standard{
+  activity_id bigint [primary key]
+  average_grade_adjusted_speed double
+  average_heartrate double
+  average_speed double
+  distance double
+  elapsed_time bigint
+  elevation_difference double
+  moving_time bigint
+  pace_zone bigint
+  split bigint [primary key]
+}
+
+Table activity_segment_effort_achievement{
+  segment_efforts_id bigint [primary key]
+  rank bigint
+  type string
+  type_id bigint [primary key]
+}
+
+Ref: activity.athlete_id > athlete.id
+Ref: activity_best_effort.activity_id > activity.id
+Ref: activity_best_effort.athlete_id > athlete.id
+Ref: activity.map_id - activity_map.id
+Ref: activity_photo.activity_id - activity.id
+Ref: activity_segment_effort.activity_id > activity.id
+Ref: activity_segment_effort.athlete_id > athlete.id
+Ref: activity_segment_effort.segment_id > segment.id
+Ref: activity_segment_effort_achievement.segment_efforts_id - activity_segment_effort.id
+Ref: activity_split_metric.activity_id > activity.id
+Ref: activity_best_effort_achievement.best_efforts_id - activity_best_effort.id
+Ref: activity.gear_id - gear.id
+Ref: activity_lap.activity_id > activity.id
+Ref: activity_lap.athlete_id > athlete.id
+Ref: activity_similar_activity.activity_id - activity.id
+Ref: activity_split_standard.activity_id > activity.id
+
+Table activity_stream {
+  activity_id string [primary key]
+  altitude array//{"items": "double"}
+  cadence array//{"items": "bigint"}
+  distance array//{"items": "double"}
+  grade_smooth array//{"items": "double"}
+  heartrate array//{"items": "bigint"}
+  latlng array//{"items": {"items": "double"}}
+  moving array//{"items": "boolean"}
+  original_size bigint
+  resolution string
+  series_type string
+  time array//{"items": "bigint"}
+  velocity_smooth array//{"items": "double"}
+}
+
+Ref: activity.id - activity_stream.activity_id
