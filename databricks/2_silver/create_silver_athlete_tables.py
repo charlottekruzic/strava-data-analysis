@@ -1,5 +1,5 @@
 # Databricks notebook source
-from pyspark.sql.functions import col, explode, explode_outer
+from pyspark.sql.functions import col, explode, explode_outer, to_timestamp
 from pyspark.sql.types import ArrayType, StructType
 
 # COMMAND ----------
@@ -16,10 +16,15 @@ simple_cols = [
     for field in df_athlete_bronze.schema.fields
     if not isinstance(field.dataType, (ArrayType, StructType))
 ]
-df_athlete_silver = df_athlete_bronze.select(*simple_cols)
+df_athlete_silver = (
+    df_athlete_bronze.select(*simple_cols)
+    .withColumn("created_at", to_timestamp("created_at"))
+    .withColumn("updated_at", to_timestamp("updated_at"))
+)
 df_athlete_silver.write.format("delta").mode("overwrite").saveAsTable(
     "strava_catalog.silver.athlete"
 )
+
 
 # COMMAND ----------
 

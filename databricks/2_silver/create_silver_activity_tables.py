@@ -17,6 +17,8 @@ df_activity_silver = (
     .withColumn("photo_count", F.col("photos.count"))
     .withColumn("start_lat", F.col("start_latlng")[0])
     .withColumn("start_lng", F.col("start_latlng")[1])
+    .withColumn("start_date", F.to_timestamp("start_date"))
+    .withColumn("start_date_local", F.to_timestamp("start_date_local"))
     .drop(
         "athlete",
         "available_zones",
@@ -74,6 +76,8 @@ df_activity_best_effort_silver = df_activity_bronze.select(
 df_activity_best_effort_silver = (
     df_activity_best_effort_silver.withColumn("activity_id", F.col("activity.id"))
     .withColumn("athlete_id", F.col("athlete.id"))
+    .withColumn("start_date", F.to_timestamp("start_date"))
+    .withColumn("start_date_local", F.to_timestamp("start_date_local"))
     .drop("achievements", "activity", "athlete")
 )
 
@@ -120,6 +124,8 @@ df_activity_lap_silver = (
     .select("lap.*")
     .withColumn("activity_id", F.col("activity.id"))
     .withColumn("athlete_id", F.col("athlete.id"))
+    .withColumn("start_date", F.to_timestamp("start_date"))
+    .withColumn("start_date_local", F.to_timestamp("start_date_local"))
     .drop("activity", "athlete")
 )
 
@@ -166,6 +172,8 @@ df_activity_segment_effort_silver = (
     .withColumn("activity_id", F.col("activity.id"))
     .withColumn("athlete_id", F.col("athlete.id"))
     .withColumn("segment_id", F.col("segment.id"))
+    .withColumn("start_date", F.to_timestamp("start_date"))
+    .withColumn("start_date_local", F.to_timestamp("start_date_local"))
     .drop("achievements", "activity", "athlete", "segment")
 )
 
