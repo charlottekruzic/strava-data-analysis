@@ -94,8 +94,6 @@
 # MAGIC CREATE TABLE IF NOT EXISTS strava_catalog.gold.gold_best_effort (
 # MAGIC   gold_best_effort_id BIGINT PRIMARY KEY,
 # MAGIC   activity_id BIGINT,
-# MAGIC   athlete_id BIGINT,
-# MAGIC   date_id DATE,
 # MAGIC   distance_m BIGINT,
 # MAGIC   distance_label VARCHAR(20),
 # MAGIC   elapsed_time_sec BIGINT,
@@ -109,8 +107,6 @@
 # MAGIC SELECT
 # MAGIC   be.id AS gold_best_effort_id,
 # MAGIC   be.activity_id,
-# MAGIC   be.athlete_id,
-# MAGIC   CAST(be.start_date_local AS DATE) AS date_id,
 # MAGIC   be.distance,
 # MAGIC   be.name AS distance_label,
 # MAGIC   be.elapsed_time AS elapsed_time_sec,
