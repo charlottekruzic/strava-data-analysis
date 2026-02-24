@@ -1,0 +1,48 @@
+Table dim_date {
+  date_id date [primary key]
+  day int
+  month int
+  year  int
+  month_short varchar(10)
+}
+
+Table dim_athlete{
+  athlete_id bigint [primary key]
+  firstname varchar(100)
+  lastname  varchar(100)
+  profile_url varchar(500)
+}
+
+Table gold_run_activity {
+  activity_id bigint [primary key]
+  athlete_id bigint
+  gear_id varchar(50)
+  date_id date
+  start_date_local timestamp
+  distance_km double
+  moving_time_sec bigint
+  total_elevation_gain_m double
+  start_lat double
+  start_lng double
+}
+
+Table gold_best_effort{
+  gold_best_effort_id bigint [primary key]
+  activity_id bigint
+  distance_m bigint
+  distance_label varchar(20)
+  elapsed_time_sec bigint
+  start_date_local timestamp
+}
+
+Table gold_gear_usage{
+  gear_id varchar(50) [primary key]
+  athlete_id bigint
+  gear_name varchar(100)
+  total_distance_km double
+}
+
+Ref: gold_run_activity.date_id > dim_date.date_id
+Ref: gold_run_activity.gear_id > gold_gear_usage.gear_id
+Ref: gold_run_activity.athlete_id > dim_athlete.athlete_id
+Ref: gold_run_activity.activity_id < gold_best_effort.activity_id
