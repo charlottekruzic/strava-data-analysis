@@ -1,0 +1,580 @@
+{
+  "version": "1.30",
+  "activeSection": "",
+  "sections": {
+    "0a72bf7fb929c7b6fc82": {
+      "visualContainers": {
+        "4c2e08236aabd6ed7e36": {
+          "singleVisual": {
+            "visualType": "slicer",
+            "mobileVcObjects": {
+              "title": [
+                {
+                  "properties": {
+                    "show": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "false"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "mobileObjects": {
+              "items": [
+                {
+                  "properties": {
+                    "textSize": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "10D"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "5b04d6768924064e27d8": {
+          "singleVisual": {
+            "visualType": "shape",
+            "mobileObjects": {
+              "shape": [
+                {
+                  "properties": {
+                    "rectangleRoundedCurve": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "9L"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "597d76bacc42d7f532b1": {
+          "singleVisual": {
+            "visualType": "tableEx",
+            "mobileVcObjects": {
+              "title": [
+                {
+                  "properties": {
+                    "fontSize": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "12D"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "mobileObjects": {
+              "values": [
+                {
+                  "properties": {
+                    "fontSize": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "9D"
+                        }
+                      }
+                    }
+                  }
+                }
+              ],
+              "columnWidth": [
+                {
+                  "properties": {
+                    "value": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "84D"
+                        }
+                      }
+                    }
+                  },
+                  "selector": {
+                    "metadata": "gold_best_effort.Best Pace Time"
+                  }
+                },
+                {
+                  "properties": {
+                    "value": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "73D"
+                        }
+                      }
+                    }
+                  },
+                  "selector": {
+                    "metadata": "gold_best_effort.distance_label"
+                  }
+                }
+              ],
+              "columnHeaders": [
+                {
+                  "properties": {
+                    "fontSize": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "10D"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "5544244ea08221f2a820": {
+          "singleVisual": {
+            "visualType": "gauge",
+            "mobileVcObjects": {
+              "title": [
+                {
+                  "properties": {
+                    "fontSize": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "9D"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "af5998a195cecc8776cb": {
+          "singleVisual": {
+            "visualType": "slicer",
+            "mobileVcObjects": {
+              "title": [
+                {
+                  "properties": {
+                    "fontSize": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "12D"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "mobileObjects": {
+              "items": [
+                {
+                  "properties": {
+                    "textSize": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "8D"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "fe17c9e9b5daba7386dc": {
+          "singleVisual": {
+            "visualType": "lineClusteredColumnComboChart",
+            "mobileVcObjects": {
+              "title": [
+                {
+                  "properties": {
+                    "fontSize": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "12D"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "mobileObjects": {
+              "categoryAxis": [
+                {
+                  "properties": {
+                    "maxMarginFactor": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "16L"
+                        }
+                      }
+                    },
+                    "fontSize": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "8D"
+                        }
+                      }
+                    },
+                    "show": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "true"
+                        }
+                      }
+                    },
+                    "innerPadding": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "20L"
+                        }
+                      }
+                    },
+                    "concatenateLabels": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "false"
+                        }
+                      }
+                    }
+                  }
+                }
+              ],
+              "legend": [
+                {
+                  "properties": {
+                    "show": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "true"
+                        }
+                      }
+                    },
+                    "position": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "'BottomCenter'"
+                        }
+                      }
+                    },
+                    "fontSize": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "8D"
+                        }
+                      }
+                    }
+                  }
+                }
+              ],
+              "valueAxis": [
+                {
+                  "properties": {
+                    "fontSize": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "8D"
+                        }
+                      }
+                    },
+                    "show": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "true"
+                        }
+                      }
+                    },
+                    "showAxisTitle": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "true"
+                        }
+                      }
+                    },
+                    "secShowAxisTitle": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "true"
+                        }
+                      }
+                    },
+                    "secFontSize": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "8D"
+                        }
+                      }
+                    },
+                    "secTitleFontSize": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "8D"
+                        }
+                      }
+                    },
+                    "titleFontSize": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "8D"
+                        }
+                      }
+                    }
+                  }
+                }
+              ],
+              "lineStyles": [
+                {
+                  "properties": {
+                    "strokeWidth": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "3D"
+                        }
+                      }
+                    },
+                    "strokeShow": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "true"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "5245d73a586bf8d45ff4": {
+          "singleVisual": {
+            "visualType": "pivotTable",
+            "mobileVcObjects": {
+              "title": [
+                {
+                  "properties": {
+                    "fontSize": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "12D"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "mobileObjects": {
+              "columnHeaders": [
+                {
+                  "properties": {
+                    "fontSize": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "8D"
+                        }
+                      }
+                    }
+                  }
+                }
+              ],
+              "rowHeaders": [
+                {
+                  "properties": {
+                    "fontSize": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "8D"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "a8f148ca3fcdf2ee5f96": {
+          "singleVisual": {
+            "visualType": "card",
+            "mobileObjects": {
+              "labels": [
+                {
+                  "properties": {
+                    "fontSize": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "13D"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "b73783e520eb441611c9": {
+          "singleVisual": {
+            "visualType": "shape",
+            "mobileObjects": {
+              "outline": [
+                {
+                  "properties": {
+                    "weight": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "1D"
+                        }
+                      }
+                    }
+                  },
+                  "selector": {
+                    "id": "default"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "a00ddec30377a1f79641": {
+          "singleVisual": {
+            "visualType": "card",
+            "mobileObjects": {
+              "labels": [
+                {
+                  "properties": {
+                    "fontSize": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "13D"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "c670f45bb1fbe34c7a29": {
+          "singleVisual": {
+            "visualType": "shape",
+            "mobileObjects": {
+              "outline": [
+                {
+                  "properties": {
+                    "weight": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "1D"
+                        }
+                      }
+                    }
+                  },
+                  "selector": {
+                    "id": "default"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "ea4619e356ebda76a4cd": {
+          "singleVisual": {
+            "visualType": "card",
+            "mobileObjects": {
+              "labels": [
+                {
+                  "properties": {
+                    "fontSize": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "13D"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "417b3b9e78a48e46f198": {
+          "singleVisual": {
+            "visualType": "card",
+            "mobileObjects": {
+              "labels": [
+                {
+                  "properties": {
+                    "fontSize": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "19D"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "dfb7c1d5fb317310ea30": {
+          "singleVisual": {
+            "visualType": "shape",
+            "mobileObjects": {
+              "outline": [
+                {
+                  "properties": {
+                    "weight": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "10D"
+                        }
+                      }
+                    }
+                  },
+                  "selector": {
+                    "id": "default"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "2d844287a040017bc2b0": {
+          "singleVisual": {
+            "visualType": "tableEx",
+            "mobileObjects": {
+              "grid": [
+                {
+                  "properties": {
+                    "imageHeight": {
+                      "expr": {
+                        "Literal": {
+                          "Value": "60D"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

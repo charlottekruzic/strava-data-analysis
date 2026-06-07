@@ -1,0 +1,16 @@
+﻿relationship 8916f7ca-1e09-b31c-b01a-703aeb116314
+	fromColumn: gold_run_activity.date_id
+	toColumn: dim_date.date_id
+
+relationship c4cf805a-1ab6-6da7-796a-7e7b4ec2a772
+	fromColumn: gold_run_activity.athlete_id
+	toColumn: dim_athlete.athlete_id
+
+relationship 0766b308-aa17-98d1-3161-e43bdfa60219
+	fromColumn: gold_run_activity.gear_id
+	toColumn: gold_gear_usage.gear_id
+
+relationship dbc0e005-d823-e99c-ef26-ab6217906d39
+	fromColumn: gold_best_effort.activity_id
+	toColumn: gold_run_activity.activity_id
+

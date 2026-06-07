@@ -1,0 +1,24 @@
+﻿model Model
+	culture: fr-FR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: fr-CH
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["dim_athlete","dim_date","gold_gear_usage","gold_best_effort","gold_run_activity"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.137.751.0 (24.10)
+
+annotation PBI_ProTooling = ["DaxQueryView_Desktop"]
+
+ref table dim_athlete
+ref table dim_date
+ref table gold_gear_usage
+ref table gold_best_effort
+ref table gold_run_activity
+
+ref cultureInfo fr-FR
+

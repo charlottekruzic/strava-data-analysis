@@ -1,0 +1,88 @@
+﻿table gold_best_effort
+
+	measure 'Best Pace Time' =
+			
+			VAR BestInSeconds = CALCULATE(MIN(gold_best_effort[elapsed_time_sec]))
+			VAR H = INT(DIVIDE(BestInSeconds,3600))
+			VAR M = INT(DIVIDE(MOD(BestInSeconds,3600),60))
+			VAR S = MOD(BestInSeconds,60)
+			RETURN IF(ISBLANK(BestInSeconds), "-", H & "h" & FORMAT(M, "00") & "m" & FORMAT(S, "00") & "s")
+
+	measure 'Best Pace Date' =
+			
+			VAR BestInSeconds = CALCULATE(MIN(gold_best_effort[elapsed_time_sec]))
+			VAR BestDate = CALCULATE(
+			    MAX(gold_best_effort[start_date_local]),
+			    gold_best_effort[elapsed_time_sec] = BestInSeconds
+			)
+			RETURN IF(ISBLANK(BestDate), "-", FORMAT(BestDate, "DD.MM.YYYY"))
+
+	column gold_best_effort_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		summarizeBy: sum
+		sourceColumn: gold_best_effort_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column activity_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		summarizeBy: none
+		sourceColumn: activity_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column distance_m
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		summarizeBy: sum
+		sourceColumn: distance_m
+
+		annotation SummarizationSetBy = Automatic
+
+	column distance_label
+		dataType: string
+		sourceProviderType: nvarchar(10)
+		summarizeBy: none
+		sourceColumn: distance_label
+		sortByColumn: distance_m
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column elapsed_time_sec
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		summarizeBy: sum
+		sourceColumn: elapsed_time_sec
+
+		annotation SummarizationSetBy = Automatic
+
+	column start_date_local
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		summarizeBy: none
+		sourceColumn: start_date_local
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_best_effort = m
+		mode: directQuery
+		source =
+				let
+				    Source = DatabricksMultiCloud.Catalogs("dbc-a93985cd-4b0e.cloud.databricks.com", "/sql/1.0/warehouses/1f175bd517ba66d1", [Catalog = "", Database = ""]),
+				    strava_catalog_Database = Source{[Name="strava_catalog",Kind="Database"]}[Data],
+				    gold_Schema = strava_catalog_Database{[Name="gold",Kind="Schema"]}[Data],
+				    gold_best_effort_Table = gold_Schema{[Name="gold_best_effort",Kind="Table"]}[Data]
+				in
+				    gold_best_effort_Table
+
+	annotation PBI_ResultType = Table
+

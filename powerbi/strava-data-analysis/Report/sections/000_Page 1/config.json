@@ -1,0 +1,120 @@
+{
+  "relationships": [
+    {
+      "source": "af5998a195cecc8776cb",
+      "target": "597d76bacc42d7f532b1",
+      "type": 3
+    },
+    {
+      "source": "af5998a195cecc8776cb",
+      "target": "5b04d6768924064e27d8",
+      "type": 3
+    },
+    {
+      "source": "af5998a195cecc8776cb",
+      "target": "a00ddec30377a1f79641",
+      "type": 3
+    },
+    {
+      "source": "af5998a195cecc8776cb",
+      "target": "ea4619e356ebda76a4cd",
+      "type": 3
+    },
+    {
+      "source": "af5998a195cecc8776cb",
+      "target": "417b3b9e78a48e46f198",
+      "type": 3
+    },
+    {
+      "source": "af5998a195cecc8776cb",
+      "target": "fe17c9e9b5daba7386dc",
+      "type": 3
+    },
+    {
+      "source": "af5998a195cecc8776cb",
+      "target": "bfe6e5cb52af1f5132df",
+      "type": 3
+    },
+    {
+      "source": "af5998a195cecc8776cb",
+      "target": "5245d73a586bf8d45ff4",
+      "type": 3
+    },
+    {
+      "source": "4c2e08236aabd6ed7e36",
+      "target": "5245d73a586bf8d45ff4",
+      "type": 1
+    },
+    {
+      "source": "4c2e08236aabd6ed7e36",
+      "target": "5544244ea08221f2a820",
+      "type": 3
+    },
+    {
+      "source": "4c2e08236aabd6ed7e36",
+      "target": "597d76bacc42d7f532b1",
+      "type": 3
+    },
+    {
+      "source": "bfe6e5cb52af1f5132df",
+      "target": "dfb7c1d5fb317310ea30",
+      "type": 3
+    },
+    {
+      "source": "bfe6e5cb52af1f5132df",
+      "target": "597d76bacc42d7f532b1",
+      "type": 3
+    },
+    {
+      "source": "bfe6e5cb52af1f5132df",
+      "target": "417b3b9e78a48e46f198",
+      "type": 3
+    },
+    {
+      "source": "bfe6e5cb52af1f5132df",
+      "target": "af5998a195cecc8776cb",
+      "type": 3
+    },
+    {
+      "source": "bfe6e5cb52af1f5132df",
+      "target": "a8f148ca3fcdf2ee5f96",
+      "type": 3
+    },
+    {
+      "source": "bfe6e5cb52af1f5132df",
+      "target": "a00ddec30377a1f79641",
+      "type": 3
+    },
+    {
+      "source": "fe17c9e9b5daba7386dc",
+      "target": "bfe6e5cb52af1f5132df",
+      "type": 3
+    },
+    {
+      "source": "fe17c9e9b5daba7386dc",
+      "target": "dfb7c1d5fb317310ea30",
+      "type": 3
+    },
+    {
+      "source": "4c2e08236aabd6ed7e36",
+      "target": "bfe6e5cb52af1f5132df",
+      "type": 1
+    },
+    {
+      "source": "af5998a195cecc8776cb",
+      "target": "b73783e520eb441611c9",
+      "type": 3
+    },
+    {
+      "source": "af5998a195cecc8776cb",
+      "target": "a8f148ca3fcdf2ee5f96",
+      "type": 3
+    },
+    {
+      "source": "af5998a195cecc8776cb",
+      "target": "c670f45bb1fbe34c7a29",
+      "type": 3
+    }
+  ],
+  "type": 1
+}

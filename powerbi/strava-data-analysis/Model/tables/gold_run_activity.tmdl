@@ -1,0 +1,142 @@
+﻿table gold_run_activity
+
+	measure 'Total Distance km' = ROUND(SUM(gold_run_activity[distance_km]),1) & " km"
+
+	measure 'Total Moving Time' = ```
+			
+			VAR S = SUM(gold_run_activity[moving_time_sec])
+			VAR H = INT(DIVIDE(S,3600))
+			VAR M = INT(DIVIDE(MOD(S,3600),60))
+			RETURN H & "h" & FORMAT(M,"00")
+			
+			```
+
+	measure 'Monthly Distance km' = ROUND(SUM(gold_run_activity[distance_km]),1)
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Run Count' = COUNTROWS(gold_run_activity)
+		formatString: 0
+
+	measure 'Nb Runs' =
+			
+			VAR Nb = COUNTROWS(gold_run_activity)
+			RETURN
+			IF(
+			    ISBLANK(Nb) || Nb = 0,
+			    "0 run",
+			    Nb & IF(Nb > 1, " runs", "run")
+			)
+
+	measure 'Avg Elevation' = ROUND(AVERAGE(gold_run_activity[total_elevation_gain_m]),1)
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column activity_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		summarizeBy: none
+		sourceColumn: activity_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column athlete_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		summarizeBy: none
+		sourceColumn: athlete_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column gear_id
+		dataType: string
+		sourceProviderType: nvarchar(50)
+		summarizeBy: none
+		sourceColumn: gear_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_id
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		summarizeBy: none
+		sourceColumn: date_id
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column start_date_local
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		summarizeBy: none
+		sourceColumn: start_date_local
+
+		annotation SummarizationSetBy = Automatic
+
+	column distance_km
+		dataType: double
+		sourceProviderType: double
+		summarizeBy: sum
+		sourceColumn: distance_km
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column moving_time_sec
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		summarizeBy: sum
+		sourceColumn: moving_time_sec
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_elevation_gain_m
+		dataType: double
+		sourceProviderType: double
+		summarizeBy: sum
+		sourceColumn: total_elevation_gain_m
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column start_lat
+		dataType: double
+		sourceProviderType: double
+		summarizeBy: sum
+		sourceColumn: start_lat
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column start_lng
+		dataType: double
+		sourceProviderType: double
+		summarizeBy: sum
+		sourceColumn: start_lng
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition gold_run_activity = m
+		mode: directQuery
+		source =
+				let
+				    Source = DatabricksMultiCloud.Catalogs("dbc-a93985cd-4b0e.cloud.databricks.com", "/sql/1.0/warehouses/1f175bd517ba66d1", [Catalog = "", Database = ""]),
+				    strava_catalog_Database = Source{[Name="strava_catalog",Kind="Database"]}[Data],
+				    gold_Schema = strava_catalog_Database{[Name="gold",Kind="Schema"]}[Data],
+				    gold_run_activity_Table = gold_Schema{[Name="gold_run_activity",Kind="Table"]}[Data]
+				in
+				    gold_run_activity_Table
+
+	annotation PBI_ResultType = Table
+

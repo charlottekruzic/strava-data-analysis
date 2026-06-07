@@ -1,0 +1,133 @@
+{
+  "name": "ea4619e356ebda76a4cd",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "height": 67.272727272727266,
+        "width": 108.18181818181817,
+        "x": 287.06271043770914,
+        "y": 0.90909090909090651,
+        "z": 4000,
+        "tabOrder": 4000
+      }
+    },
+    {
+      "id": 1,
+      "position": {
+        "x": 213,
+        "y": 99,
+        "z": 9,
+        "width": 101,
+        "height": 43
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "card",
+    "projections": {
+      "Values": [
+        {
+          "queryRef": "gold_run_activity.Total Moving Time"
+        }
+      ]
+    },
+    "prototypeQuery": {
+      "Version": 2,
+      "From": [
+        {
+          "Name": "g",
+          "Entity": "gold_run_activity",
+          "Type": 0
+        }
+      ],
+      "Select": [
+        {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "g"
+              }
+            },
+            "Property": "Total Moving Time"
+          },
+          "Name": "gold_run_activity.Total Moving Time",
+          "NativeReferenceName": "Total Moving Time"
+        }
+      ],
+      "OrderBy": [
+        {
+          "Direction": 2,
+          "Expression": {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Source": "g"
+                }
+              },
+              "Property": "Total Moving Time"
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true,
+    "hasDefaultSort": true,
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "vcObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "parentGroupName": "4c26810682d4b34ad2cd"
+}

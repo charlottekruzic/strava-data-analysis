@@ -1,0 +1,176 @@
+{
+  "name": "bfe6e5cb52af1f5132df",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": 811.53846153846155,
+        "y": 398.46153846153845,
+        "z": 6000,
+        "width": 448.46153846153845,
+        "height": 306.15384615384613,
+        "tabOrder": 9000
+      }
+    },
+    {
+      "id": 1,
+      "position": {
+        "x": 8,
+        "y": 910,
+        "z": 19,
+        "width": 310,
+        "height": 254
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "map",
+    "projections": {
+      "Y": [
+        {
+          "queryRef": "Sum(gold_run_activity.start_lat)"
+        }
+      ],
+      "X": [
+        {
+          "queryRef": "Sum(gold_run_activity.start_lng)"
+        }
+      ]
+    },
+    "prototypeQuery": {
+      "Version": 2,
+      "From": [
+        {
+          "Name": "g",
+          "Entity": "gold_run_activity",
+          "Type": 0
+        }
+      ],
+      "Select": [
+        {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "g"
+              }
+            },
+            "Property": "start_lat"
+          },
+          "Name": "Sum(gold_run_activity.start_lat)",
+          "NativeReferenceName": "start_lat"
+        },
+        {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "g"
+              }
+            },
+            "Property": "start_lng"
+          },
+          "Name": "Sum(gold_run_activity.start_lng)",
+          "NativeReferenceName": "start_lng"
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "mapStyles": [
+        {
+          "properties": {
+            "mapTheme": {
+              "expr": {
+                "Literal": {
+                  "Value": "'grayscale'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FC4C02'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "vcObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Run Map'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E0E0E0'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

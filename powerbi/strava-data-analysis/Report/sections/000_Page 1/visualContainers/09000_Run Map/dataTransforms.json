@@ -1,0 +1,116 @@
+{
+  "objects": {
+    "mapStyles": [
+      {
+        "properties": {
+          "mapTheme": {
+            "expr": {
+              "Literal": {
+                "Value": "'grayscale'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "dataPoint": [
+      {
+        "properties": {
+          "fill": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#FC4C02'"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "projectionOrdering": {
+    "Y": [
+      0
+    ],
+    "X": [
+      1
+    ]
+  },
+  "queryMetadata": {
+    "Select": [
+      {
+        "Restatement": "start_lat",
+        "Name": "Sum(gold_run_activity.start_lat)",
+        "Type": 1
+      },
+      {
+        "Restatement": "start_lng",
+        "Name": "Sum(gold_run_activity.start_lng)",
+        "Type": 1
+      }
+    ]
+  },
+  "visualElements": [
+    {
+      "DataRoles": [
+        {
+          "Name": "Y",
+          "Projection": 0,
+          "isActive": false
+        },
+        {
+          "Name": "X",
+          "Projection": 1,
+          "isActive": false
+        }
+      ]
+    }
+  ],
+  "selects": [
+    {
+      "displayName": "start_lat",
+      "queryName": "Sum(gold_run_activity.start_lat)",
+      "roles": {
+        "Y": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 259
+      },
+      "expr": {
+        "Column": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "gold_run_activity"
+            }
+          },
+          "Property": "start_lat"
+        }
+      }
+    },
+    {
+      "displayName": "start_lng",
+      "queryName": "Sum(gold_run_activity.start_lng)",
+      "roles": {
+        "X": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 259
+      },
+      "expr": {
+        "Column": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "gold_run_activity"
+            }
+          },
+          "Property": "start_lng"
+        }
+      }
+    }
+  ]
+}

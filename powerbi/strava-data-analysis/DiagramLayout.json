@@ -1,0 +1,88 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 238.1773018833712,
+            "y": 372.47217645612545
+          },
+          "nodeIndex": "dim_athlete",
+          "nodeLineageTag": "66db8bfe-c208-449b-9873-036625e124c0",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 926.49799429495135,
+            "y": 757.16364166493042
+          },
+          "nodeIndex": "dim_date",
+          "nodeLineageTag": "596881d9-c2d6-4f35-bd03-6d7d748597d4",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 2,
+          "expandedHeight": 272
+        },
+        {
+          "location": {
+            "x": 424.99216576674814,
+            "y": 13.437989639578204
+          },
+          "nodeIndex": "gold_best_effort",
+          "nodeLineageTag": "caeefde1-3651-474f-9b0a-afbc05521e35",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 884.2026937940675,
+            "y": 46.713131353892379
+          },
+          "nodeIndex": "gold_gear_usage",
+          "nodeLineageTag": "6112217f-2c58-42d1-b672-1ec977363247",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 585.65540600321378,
+            "y": 500.73215133337681
+          },
+          "nodeIndex": "gold_run_activity",
+          "nodeLineageTag": "0ef1550d-333f-447c-b205-fcc6a4c459a6",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 4
+        }
+      ],
+      "name": "Toutes les tables",
+      "zoomValue": 44.9056973131045,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Toutes les tables",
+  "defaultDiagram": "Toutes les tables"
+}
