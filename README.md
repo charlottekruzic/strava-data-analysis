@@ -91,7 +91,7 @@ Generate a [Databricks Personal Access Token (PAT)](https://docs.databricks.com/
 The `.pbix` file is not tracked in Git. The report source is versioned as extracted files under `powerbi/strava-data-analysis/`. To rebuild it locally:
 
 ```powershell
-pbi-tools compile .\powerbi\strava-data-analysis
+pbi-tools compile .\powerbi\strava-data-analysis -outPath .\powerbi\strava-data-analysis.pbit -format PBIT
 ```
 
 Then open the generated `strava-data-analysis.pbix` in Power BI Desktop, reconfigure the Databricks connection under **Home > Transform data > Data source settings**, and refresh the data.
