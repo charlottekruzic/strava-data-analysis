@@ -27,6 +27,10 @@ df_activity_stream_silver = df_stream_bronze.select(
     *[F.col(f"{col}.data").alias(f"{col}") for col in keys],
 )
 
+df_activity_stream_silver = df_activity_stream_silver.select(
+    sorted(df_activity_stream_silver.columns)
+)
+
 # COMMAND ----------
 
 df_activity_stream_silver.write.format("delta").mode("overwrite").saveAsTable(
