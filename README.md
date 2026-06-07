@@ -94,4 +94,4 @@ The `.pbix` file is not tracked in Git. The report source is versioned as extrac
 pbi-tools compile .\powerbi\strava-data-analysis -outPath .\powerbi\strava-data-analysis.pbit -format PBIT
 ```
 
-Then open the generated `strava-data-analysis.pbix` in Power BI Desktop, reconfigure the Databricks connection under **Home > Transform data > Data source settings**, and refresh the data.
+Then open the generated `strava-data-analysis.pbit` in Power BI Desktop, reconfigure the Databricks connection under **Home > Transform data > Data source settings**, and refresh the data.
