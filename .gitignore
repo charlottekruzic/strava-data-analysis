@@ -1,5 +1,6 @@
 secrets/
 venv/
-.env
+*.env
 raw_data/
 __pycache__/
+*.pbix
