@@ -73,10 +73,21 @@ Raw data is saved as JSON files under `ingestion/raw_data/`.
 
 This step transforms the raw JSON data into gold-layer tables ready for Power BI, using a medallion architecture.
 
+#### Set up the catalog and volume
+
 1. Create a [Databricks Free Edition](https://www.databricks.com/learn/free-edition) account
 2. Import the notebooks located in each subfolder of `databricks/`
-3. Manually upload the JSON files from `ingestion/raw_data/` into your Databricks volume, preserving the same subfolder structure as on your local machine
-4. Run the `run_pipeline.py` notebook to execute the full pipeline
+3. Run **only** the `0_setup/create_strava_catalog` notebook to create the catalog, schemas, and volume
+
+#### Upload raw data
+
+Manually upload the JSON files from `ingestion/raw_data/` into your Databricks volume at: `/Volumes/strava_catalog/raw/json_files/`
+
+Preserve the same subfolder structure as on your local machine.
+
+#### Run the full pipeline
+
+Run the `run_pipeline.py` notebook.
 
 ### 3. Power BI Dashboard
 
